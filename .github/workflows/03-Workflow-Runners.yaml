@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show OS
-        run: echo 'This job is running on a ' ${{ runner.arch}} 'runner.'
+        run: echo 'This job is running on a ' ${{ runner.temp}} 'runner.'
