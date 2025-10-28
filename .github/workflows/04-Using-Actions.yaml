@@ -20,7 +20,5 @@ jobs:
       - name: Install Dependencies
         #run: npm ci -> se fizer isso direto dara erro pq irá rodar na raiz do projeto,
         #               por isso temos que entrar na pasta certa como está abaixo
-        run: |
-          cd 04-using-actions/react-app
-          npm ci
+        run: npm ci
         working-directory: 04-using-actions/react-app
