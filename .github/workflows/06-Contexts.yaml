@@ -11,9 +11,18 @@ on:
         type: boolean
         default: false
 
+
+env: #Variáveis de nível de workflow
+  MY_WORKFLOW_VAR: 'workflow'
+  MY_OVERWRITTEN_VAR: 'workflow'
+
 jobs:
   echo-data:
     runs-on: ubuntu-latest
+    env: #Variáveis de nivel de job sobrepõe variáveis de workflow
+      MY_JOB_VAR: 'job'
+      MY_OVERWRITTEN_VAR: 'job' 
+
     steps:
       - name: Display Information
         run: |
@@ -27,3 +36,9 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "Variable value: " ${{ vars.MY_VAR }} 
+      - name: Print Env Varibles
+        env: #Variáveis de nível de steps sobrepõe variáveis de job
+          MY_OVERWRITTEN_VAR: 'step'
+        run: |
+          echo "Workflow env: " ${{ env.MY_WORKFLOW_VAR }}
+          echo "Overwritten env:" ${{env.MY_OVERWRITTEN_VAR}}
