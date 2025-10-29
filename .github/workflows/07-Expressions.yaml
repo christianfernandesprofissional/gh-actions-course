@@ -1,17 +1,18 @@
 name: 7 -  Using Expressions
 
-run-name: 07 - Using Expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}}
+run-name: 07 - Using Expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}} 
+                              # O simbolo || dentro das chaves é como se fosse um 'else'"
 
 #env: outra maneira além da forma acima, podemos criar uma variavel de workflow e chamar acima
 #  MY_VAR_WITH_DEFAULT: ${{vars.MY_VAR | 'default_value'}}
 
-on: #workflow_dispatch
-  push:
-  workflow_dispatch: 
-    inputs:
-      debug:
-        type: boolean
-        default: false
+on: workflow_dispatch
+#   push:
+#   workflow_dispatch: 
+#     inputs:
+#       debug:
+#         type: boolean
+#         default: false
       
 jobs:
   echo:
