@@ -1,0 +1,43 @@
+name: Annotations of Organizations
+on: workflow_dispatch
+
+jobs:
+  echo-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Hello, World!"
+
+# Aqui estou fazendo anotações sobre Organizations no github, 
+# que basicamente é a ideia de uma conta compartilhada, geralmente 
+# empresarial onde existem repositorios, equipes e usuários.
+# Podemos criar environments no github, e adicionar variáveis a eles.
+# As variáveis de organização podem sobrepor as variaveis comuns
+# Também é possível ter variáveis de ambiente, e variáveis de repositório.
+# Isso diretamente na interface do github em configurações do repositório. 
+# Para acessar as variáveis de ambiente, vc deve especificar o nome do ambiente
+# em que vc quer acessar as variáveis no seu workflow, por exemplo, vc
+# tem algumas variáveis que estão no ambiente 'prod' então, no seu job
+# vc vai colocar a chave environment->
+
+# jobs:
+#   echo-prod:
+#     runs-on: ubuntu-latest
+#     environment: prod -> AQUI
+
+# Caso tentarmos acessar uma variável que tem valor nulo ou sem valor padrao
+# é interessante passar valores default para a variavel para previnir, pois isto
+# pode causar erros de execução. Podemos definir valores padrões dessa maneira:
+
+# run: |
+#   echo "Valor da variavel: ${{vars.UNDEFINED_VAR || 'default value'}}"
+
+
+# Ou  de uma maneira mais escalavel podemos definir uma variável de nivel Workflow
+# que acessa a variavel definida no github e passa um valor default caso não exista
+# dessa maneira não precisamos criar uma condição a cada 'run' que aparecer no yaml, 
+# basta chamar uma só variável que já contenha o valor padrão
+
+# Hierarquia das variaveis:
+
+#   Step > Job > Workflow > Repositório > Organização
