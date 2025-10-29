@@ -1,4 +1,10 @@
-name: 7 -  Using Expretions
+name: 7 -  Using Expressions
+
+run-name: 07 - Using Expressions | DEBUG - ${{inputs.debug && 'ON' || 'OFF'}}
+
+#env: outra maneira além da forma acima, podemos criar uma variavel de workflow e chamar acima
+#  MY_VAR_WITH_DEFAULT: ${{vars.MY_VAR | 'default_value'}}
+
 on: #workflow_dispatch
   push:
   workflow_dispatch: 
