@@ -36,9 +36,13 @@ jobs:
       - name: Retrieve Variable
         run: |
           echo "Variable value: " ${{ vars.MY_VAR }} 
-      - name: Print Env Varibles
+      - name: Print Env steps Variables
         env: #Variáveis de nível de steps sobrepõe variáveis de job
           MY_OVERWRITTEN_VAR: 'step'
+        run: |
+          echo "Workflow env: " ${{ env.MY_WORKFLOW_VAR }}
+          echo "Overwritten env:" ${{env.MY_OVERWRITTEN_VAR}}
+      - name: Print Env job Varibles
         run: |
           echo "Workflow env: " ${{ env.MY_WORKFLOW_VAR }}
           echo "Overwritten env:" ${{env.MY_OVERWRITTEN_VAR}}
