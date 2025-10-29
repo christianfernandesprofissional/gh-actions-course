@@ -1,5 +1,15 @@
 name: 06 - Contexts
-on: push
+
+#run-name: My custom workflow run name with error - ${{runner.os}}
+run-name: My custom workflow run name - ${{inputs.debug}}
+
+on: 
+  push:
+  workflow_dispatch: 
+    inputs:
+      debug:
+        type: boolean
+        default: false
 
 jobs:
   echo-data:
