@@ -1,4 +1,4 @@
-name: Annotations of Organizations
+name: 08.1 - Annotations of Organizations
 on: workflow_dispatch
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
 # pode causar erros de execução. Podemos definir valores padrões dessa maneira:
 
 # run: |
-#   echo "Valor da variavel: ${{vars.UNDEFINED_VAR || 'default value'}}"
+#   echo "Valor da variavel: ${vars.UNDEFINED_VAR || 'default value'}}"
 
 
 # Ou  de uma maneira mais escalavel podemos definir uma variável de nivel Workflow
