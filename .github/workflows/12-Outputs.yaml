@@ -19,7 +19,8 @@ jobs:
         run: echo "$GITHUB_OUTPUT"
       - name: Build
         id: build
-        run: echo "status=${{inputs.build-status}} >> $GITHUB_OUTPUT" 
+        run: echo "status=${{inputs.build-status}} >> $GITHUB_OUTPUT"
+           
   deploy:
     runs-on: ubuntu-latest
     needs:
@@ -28,3 +29,5 @@ jobs:
       - name: Deploy  #a condição abaixo tbm poderia ser usada no nivel de job
         if: ${{ needs.build.outputs.build-status == 'success'}} 
         run: echo "Deploying" 
+      - name: teste
+        run: echo ${{ needs.build.outputs.build-status }}
