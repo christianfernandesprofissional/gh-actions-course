@@ -7,6 +7,8 @@ jobs:
   echo01:
     runs-on: ubuntu-latest
     steps:
+      - name: Sleep 20 seconds to test cancelled
+        run: sleep 15
       - name: Failing step
         run: exit 1
       - name: I will be skipped
