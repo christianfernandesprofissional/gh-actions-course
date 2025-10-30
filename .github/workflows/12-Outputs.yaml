@@ -26,4 +26,5 @@ jobs:
       - build
     steps:
       - name: Deploy
+        if: ${{ contains(inputs.build-status, 'success')}}
         run: echo "Deploying" 
