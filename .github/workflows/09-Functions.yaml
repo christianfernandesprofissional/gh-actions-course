@@ -4,6 +4,7 @@ on: workflow_dispatch
   #workflow_dispatch: 
 
 jobs:
+    #Funções podem ser usadas estando fora do ${{}} a não ser que voce queira negar a função, nesse caso tem que estar dentro
   echo01:
     runs-on: ubuntu-latest
     steps:
