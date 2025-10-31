@@ -3,19 +3,19 @@ on: workflow_dispatch
 
 jobs:
   backwards-compatibility:
-    runs-on: ${{matrix.os}}-${{matrix.node-version}} #Desta maneira o github vai rodar em todas as combinações possíveis entre os e Node-version
+    runs-on: ${{matrix.os}} #Desta maneira o github vai rodar em todas as combinações possíveis entre os e Node-version
     strategy:
       fail-fast: false # se for true, se um job falhar, todos os outros serão cancelados
       matrix:
-        node-version: [ 18.x, 20.x, 21.x]  
+        node-version: [ 20.x, 20.x, 21.x]  
         os: 
-          - ubuntu
-          - windows
+          - ubuntu-latest
+          - windows-latest
         include: #essa chave permite adicionar combinações específicas que queremos
-          - os: ubuntu
+          - os: ubuntu-latest
             node-version: 16.x 
-          - os: ubuntu
-            node-version: 21.x
+          - os: ubuntu-latest
+            node-version: 23.x
             tag: experimental #Como esta combinação já existe, será adicionada essa tag a ela
     steps:
       - name: Setup Node
