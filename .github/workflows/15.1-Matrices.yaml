@@ -45,4 +45,4 @@ jobs:
             shape: triangle
     steps:
       - name: Dummy step
-        run: echo ""
+        run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}"
