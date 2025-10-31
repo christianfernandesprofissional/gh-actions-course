@@ -42,6 +42,11 @@ jobs:
         size: [small, large]
         include: 
           - opacity: 50 #essa entrada, como ela não sobrepõe nada, ela será combinada com todos os nossos valores
+          - color: red 
+            opacity: 75 #Esses valores serão sobrescritos, já que é um valor passado no include
+                        #tudo que tem cor vermelha tera opacity de 75, e abaixo tudo que for circulo tera opacity 100
+          - shape: circle
+            opacity: 100
           - color: red
             shape: triangle #como nos não fornecemos 'size' ele vai ficar assim e não vai tentar combinar
     steps:
