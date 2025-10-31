@@ -45,10 +45,15 @@ jobs:
           - color: red 
             opacity: 75 #Esses valores serão sobrescritos, já que é um valor passado no include
                         #tudo que tem cor vermelha tera opacity de 75, e abaixo tudo que for circulo tera opacity 100
-          - shape: circle
+          - shape: circle #Por causa da ordem em que os valores do include foram passados, ele executa linha a linha
+                          #dessa maneira os circulos vermelhos, serão sobrescritos depois da execução com os valores finais
             opacity: 100
+            #Os ultimos valores do ultimo array irão sempre sobrescrever os primeiros, CUIDADO COM ISSO
           - color: red
             shape: triangle #como nos não fornecemos 'size' ele vai ficar assim e não vai tentar combinar
+        exclude: #excluir combinações, é processado ANTES do include
+          - opacity: 75
+
     steps:
       - name: Dummy step
         run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}-${{matrix.opacity}}"
