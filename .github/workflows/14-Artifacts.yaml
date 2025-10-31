@@ -15,6 +15,9 @@ on:
     #       - 21.x
     #     default: 20.x 
     
+env:
+  build-artifact-key: app-${{github.sha}}
+  test-coverage-key: test-coverage-${{github.sha}}
 
 jobs:
   test-build:
@@ -39,13 +42,18 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: unit tests
-        run:  npm run test
+        run:  npm run test -- --coverage
+      - name: Upload Test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{env.test-coverage-key}}
+          path: 14-artifacts/react-app/coverage
       - name: Build code
         run: npm run build
       - name: Upload build files
         uses: actions/upload-artifact@v4
         with:
-          name: app
+          name: ${{env.build-artifact-key}}
           path: 14-artifacts/react-app/build
   deploy:
     runs-on: ubuntu-latest
@@ -55,7 +63,7 @@ jobs:
     - name: Download build files
       uses: actions/download-artifact@v4
       with:
-        name: app
+        name: ${{env.build-artifact-key}}
         path: build #Para onde os artefatos irão
     - name: Show folder structure
       run: ls -R
