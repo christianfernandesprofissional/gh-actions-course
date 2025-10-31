@@ -3,6 +3,7 @@ on: workflow_dispatch
 
 jobs:
   backwards-compatibility:
+    name: ${{matrix.os}}-${{matrix.node-version}}
     runs-on: ${{matrix.os}} #Desta maneira o github vai rodar em todas as combinações possíveis entre os e Node-version
     strategy:
       fail-fast: false # se for true, se um job falhar, todos os outros serão cancelados
