@@ -51,8 +51,9 @@ jobs:
             #Os ultimos valores do ultimo array irão sempre sobrescrever os primeiros, CUIDADO COM ISSO
           - color: red
             shape: triangle #como nos não fornecemos 'size' ele vai ficar assim e não vai tentar combinar
-        exclude: #excluir combinações, é processado ANTES do include
-          - opacity: 75
+        exclude: #excluir combinações, é processado ANTES do include, ou seja só vai funcionar com valores fixos
+          - color: green
+            shape: circle
 
     steps:
       - name: Dummy step
