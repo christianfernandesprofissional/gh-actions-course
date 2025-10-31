@@ -9,12 +9,12 @@ jobs:
       matrix:
         node-version: [ 22.x, 23.x, 24.x]  
         os: 
-          - ubuntu-latest
-          - windows-latest
+          - ubuntu
+          - windows
         include: #essa chave permite adicionar combinações específicas que queremos
-          - os: ubuntu-latest
+          - os: ubuntu
             node-version: 21.x 
-          - os: ubuntu-latest
+          - os: ubuntu
             node-version: 24.x
             tag: experimental #Como esta combinação já existe, será adicionada essa tag a ela
     steps:
