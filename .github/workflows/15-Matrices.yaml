@@ -7,15 +7,15 @@ jobs:
     strategy:
       fail-fast: false # se for true, se um job falhar, todos os outros serão cancelados
       matrix:
-        node-version: [ 22.x, 23.x, 24.x]  
+        node-version: [ 18.x, 20.x, 21.x]  
         os: 
           - ubuntu
           - windows
         include: #essa chave permite adicionar combinações específicas que queremos
           - os: ubuntu
-            node-version: 21.x 
+            node-version: 16.x 
           - os: ubuntu
-            node-version: 24.x
+            node-version: 21.x
             tag: experimental #Como esta combinação já existe, será adicionada essa tag a ela
     steps:
       - name: Setup Node
