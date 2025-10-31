@@ -41,8 +41,9 @@ jobs:
         shape: [circle, square]
         size: [small, large]
         include: 
+          - opacity: 50 #essa entrada, como ela não sobrepõe nada, ela será combinada com todos os nossos valores
           - color: red
-            shape: triangle
+            shape: triangle #como nos não fornecemos 'size' ele vai ficar assim e não vai tentar combinar
     steps:
       - name: Dummy step
         run: echo "${{matrix.color}}-${{matrix.shape}}-${{matrix.size}}"
