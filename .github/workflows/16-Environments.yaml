@@ -32,11 +32,28 @@ jobs:
       - name: Echo vars
         run: | 
           echo "Running E2e" 
-  deploy-prod:
+  deploy-prod-frontend:
     runs-on: ubuntu-latest
     needs: e2e-tests
     environment: prod
     steps:
       - name: Echo vars
         run: | 
-          echo "Deploying to prod"  
+          echo "Deploying to prod frontend"  
+  deploy-prod-beackend1:
+    runs-on: ubuntu-latest
+    needs: e2e-tests
+    environment: prod
+    steps:
+      - name: Echo vars
+        run: | 
+          echo "Deploying to prod backend1"  
+  deploy-prod-beackend2:
+    runs-on: ubuntu-latest
+    needs: e2e-tests
+    environment: prod
+    steps:
+      - name: Echo vars
+        run: | 
+          echo "Deploying to prod backend2"  
+
