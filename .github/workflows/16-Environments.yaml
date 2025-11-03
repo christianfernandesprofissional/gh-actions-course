@@ -17,5 +17,3 @@ jobs:
       - name: Echo vars
         run: | 
           echo "Env variable: ${{vars.MY_ENV_VALUE}}"
-  echo-goodbye:
-    runs-on: ubuntu-latest
