@@ -15,15 +15,13 @@ jobs:
         #onde estão armazenados nossa Custom action, precisamos adicionar um
         #step a mais, dizendo para usar o actions/checkout@v4 para ele verificar
         #nosso repositorio e mapear onde está a nossa custom action
-        uses: ./github/actions/composite-cache-deps 
+        uses: ./.github/actions/composite-cache-deps 
         with:
           node-version: 20.x
           working-dir: ${{env.working-directory}} 
           #17-custom-actions/react-app Nos custom actions locais é sempre necessário passar o work-dir
       - name: Test
         run: npm run test
-        working-directory: 17-custom-actions/react-app
       - name: Build
         run: npm run build
-        working-directory: 17-custom-actions/react-app
     
