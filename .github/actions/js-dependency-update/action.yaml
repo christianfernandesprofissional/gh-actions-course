@@ -2,6 +2,23 @@ ame: Update NPM Dependencies
 description: Checks if therer are  updates to NPM packages, and creates a PR with the update package*.json files. 
 
 
+inputs:
+  base-branch:
+    description: The branch used as the base for the dependency update Checks
+    default: main
+    required: false
+  target-branch:
+    description: The branch from which the PR is created
+    default: update-Dependencies
+    required: false
+  working-directory:
+    description: The working directory of the project to check for dependency updates
+    required: true
+  gh-token:
+    description: Authentication token with repository access. Must have write access to contents and pull-requests
+  debug:
+    description: Whether the output debug messages to the console
+    default: 'false'
 runs: 
   using: node20
   main: index.js
