@@ -7,7 +7,7 @@ on:
       base-branch:
         type: string
         default: main
-      head-branch:
+      target-branch:
         type: string
         default: update-dependencies
       working-dir:
