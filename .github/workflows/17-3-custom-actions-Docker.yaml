@@ -6,7 +6,7 @@ on:
     inputs: 
       url:
         type: string
-        default: 'https://www.google.com'
+        default: "https://www.google.com"
 
 
 jobs:
